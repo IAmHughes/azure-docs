@@ -2,15 +2,15 @@
 title: Network topologies for Azure SQL Database Managed Instance migrations using the Azure Database Migration Service | Microsoft Docs
 description: Learn the source and target configurations for Database Migration Service.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
-manager: 
-ms.reviewer: 
-ms.service: database-migration
+author: HJToland3
+ms.author: jtoland
+manager: craigg
+ms.reviewer: craigg
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/8/2018
+ms.date: 03/12/2019
 ---
 
 # Network topologies for Azure SQL DB Managed Instance migrations using the Azure Database Migration Service
@@ -82,4 +82,5 @@ Use this network topology if your environment requires one or more of the follow
 - [Create a virtual network using the Azure portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
 ## Next steps
-For an overview of the Azure Database Migration Service and regional availability during Public Preview, see the article [What is the Azure Database Migration Service Preview](dms-overview.md). 
+- For an overview of the Azure Database Migration Service, see the article [What is the Azure Database Migration Service?](dms-overview.md).
+- For current information about regional availability of the Azure Database Migration Service, see the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration) page.

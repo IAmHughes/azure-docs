@@ -36,14 +36,14 @@ To forecast your monthly bill for migrated workloads, there are a number of tool
 
 - **Azure pricing calculator**: You select the products you want to estimate, for example VMs and storage. You input costs into the pricing calculator, to build an estimate.
 
- ![Azure pricing calculator](./media/migrate-best-practices-costs/pricing.png)
+  ![Azure pricing calculator](./media/migrate-best-practices-costs/pricing.png)
     *Azure pricing calculator*
 
 - **Azure Migrate**: To estimate costs, you need to review and account for all the resources required to run your workloads in Azure. To acquire this data, you create inventory of your assets, including servers, VMs, databases, and storage. You can use Azure Migrate to collect this information.
 
- - Azure Migrate discovers and assesses your on-premises environment to provide an inventory.
- - Azure Migrate can map and show you dependencies between VMs so that you have a complete picture.
- - An Azure Migrate assessment contains estimated cost.
+  - Azure Migrate discovers and assesses your on-premises environment to provide an inventory.
+  - Azure Migrate can map and show you dependencies between VMs so that you have a complete picture.
+  - An Azure Migrate assessment contains estimated cost.
     - Compute costs: Using the Azure VM size recommended when you create an assessment, Azure Migrate uses the Billing API to calculate estimated monthly VM costs. The estimation considers the operating system, software assurance, reserved instances, VM uptime, location, and currency settings. It aggregates the cost across all VMs in the assessment, and calculates a total monthly compute cost.
     - Storage cost: Azure Migrate calculates total monthly storage costs by aggregating the storage costs of all VMs in an assessment. You can calculate the monthly storage cost for a specific machine by aggregating the monthly cost of all disks attached to it. 
 
@@ -90,13 +90,13 @@ Tuning and maintaining on-premises storage (SAN or NAS), and the networks to sup
 
 Azure provides different types of storage data.
 
-**Data type** | **Details** | **Usage** 
---- | --- |  ---
-**Blobs** | Optimized to store massive amounts of unstructured objects, such as text or binary data<br/><br/> | Access data from everywhere over HTTP/HTTPS. | Use for streaming and random access scenarios. For example, to serve images and documents directly to a browser, stream video and audio, and store backup and disaster recovery data.
-**Files** | Managed file shares accessed over SMB 3.0 | Use when migrating on-premises file shares, and to provide multiple access/connections to file data.
-**Disks** | Based on page blobs.<br/><br/> Disk type (speed): Standard (HDD or SSD) or Premium (SSD).<br/><br/>Disk management: Unmanaged (you manage disk settings and storage) or Managed (you select the disk type and Azure manages the disk for you). | Use Premium disks for VMs. Use managed disks for simple management and scaling.
-**Queues** | Store and retrieve large numbers of messages accessed via authenticated calls (HTTP or HTTPS) | Connect app components with asynchronous message queueing.
-**Tables** | Store tables. | Now part of Azure Cosmos DB Table API.
+| **Data type** | **Details** | **Usage** |
+|--- | --- |  --- |
+|**Blobs** | Optimized to store massive amounts of unstructured objects, such as text or binary data<br/>Access data from everywhere over HTTP/HTTPS. | Use for streaming and random access scenarios. For example, to serve images and documents directly to a browser, stream video and audio, and store backup and disaster recovery data.|
+|**Files** | Managed file shares accessed over SMB 3.0 | Use when migrating on-premises file shares, and to provide multiple access/connections to file data.|
+|**Disks** | Based on page blobs.<br/><br/> Disk type (speed): Standard (HDD or SSD) or Premium (SSD).<br/><br/>Disk management: Unmanaged (you manage disk settings and storage) or Managed (you select the disk type and Azure manages the disk for you). | Use Premium disks for VMs. Use managed disks for simple management and scaling.|
+|**Queues** | Store and retrieve large numbers of messages accessed via authenticated calls (HTTP or HTTPS) | Connect app components with asynchronous message queueing.|
+|**Tables** | Store tables. | Now part of Azure Cosmos DB Table API.|
 
 
 
@@ -115,7 +115,7 @@ Azure provides different types of storage accounts and performance tiers.
 
 **Account type** | **Details** | **Usage**
 --- | --- | ---
-**General Purpose v2 Standard** | Supports blobs (block, page, append), files, disks, queues, and tables.<br/><br/> Supports Hot, Cool, and Archive access tiers. ZRS is supported. | Use for most scenarios and most types of data. Standard storage accounts can be HHD or SSD based.
+**General Purpose v2 Standard** | Supports blobs (block, page, append), files, disks, queues, and tables.<br/><br/> Supports Hot, Cool, and Archive access tiers. ZRS is supported. | Use for most scenarios and most types of data. Standard storage accounts can be HDD or SSD based.
 **General Purpose v2 Premium** | Supports Blob storage data (page blobs). Supports Hot, Cool, and Archive access tiers. ZRS is supported.<br/><br/> Stored on SSD. | Microsoft recommends using for all VMs.
 **General Purpose v1** | Access tiering isn't supported. Doesn't support ZRS | Use if apps need the Azure classic deployment model.
 **Blob** | Specialized storage account for storing unstructured objects. Provides block blobs and append blobs only (no File, Queue, Table or Disk storage services). Provides the same durability, availability, scalability and performance as General Purpose v2. | you can't store page blobs in these accounts, and therefore can't store VHD files. You can set an access tier to Hot or Cool.
@@ -152,7 +152,7 @@ An integrated Microsoft on-premises/Azure product portfolio generates competitiv
 
 - [Take a look at](https://azure.microsoft.com/pricing/hybrid-benefit/) the Hybrid Benefit Savings Calculator.
 - [Learn more](https://azure.microsoft.com/pricing/hybrid-benefit/) about Hybrid Benefit for Windows Server.
-- [Review](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) pricing guidance for SQL Server Azure VMs.
+- [Review](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) pricing guidance for SQL Server Azure VMs.
 
 
 ## Best practice: Use reserved VM instances
@@ -172,7 +172,7 @@ Using Azure Reserved VM instances, you prepay for a one or three-year term VM in
 **Learn more:**
 - [Learn about](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) Azure Reservations.
 - [Read](https://azure.microsoft.com/pricing/reserved-vm-instances/#faq) the reserved instances FAQ.
-- [Get pricing guidance](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) for SQL Server Azure VMs.
+- [Get pricing guidance](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) for SQL Server Azure VMs.
 
 
 ## Best practice: Aggregate cloud spend across subscriptions
@@ -209,18 +209,18 @@ In Cost Management, you can:
 
 
 - **Create a budget**: Create a budget for financial accountability.
-    - You can account for the services you consume or subscribe to for a specific period (monthly, quarterly, annually) and a scope (subscriptions/resource groups). For example, you can create an Azure subscription budget for a monthly, quarterly, or annual period.
-    - After you create a budget, it's shown in cost analysis. Viewing your budget against current spending is one of the first steps needed when analyzing your costs and spending.
-    - Email notifications can be sent when budget thresholds are reached.
-    - You can export costs management data to Azure storage, for analysis.
+  - You can account for the services you consume or subscribe to for a specific period (monthly, quarterly, annually) and a scope (subscriptions/resource groups). For example, you can create an Azure subscription budget for a monthly, quarterly, or annual period.
+  - After you create a budget, it's shown in cost analysis. Viewing your budget against current spending is one of the first steps needed when analyzing your costs and spending.
+  - Email notifications can be sent when budget thresholds are reached.
+  - You can export costs management data to Azure storage, for analysis.
 
     ![Cost Management budget](./media/migrate-best-practices-costs/budget.png)
     *Azure Cost Management budget*
 
 - **Do a cost analysis**: Get a cost analysis to explore and analyze your organizational costs, to help you understand how costs are accrued, and identify spending trends.
-    - Cost analysis is available to EA users.
-    - You can view cost analysis data for a number of scopes, including by department, account, subscription or resource group.
-    - You can get a cost analysis that shows total costs for the current month, and accumulated daily costs. 
+  - Cost analysis is available to EA users.
+  - You can view cost analysis data for a number of scopes, including by department, account, subscription or resource group.
+  - You can get a cost analysis that shows total costs for the current month, and accumulated daily costs. 
 
     ![Cost Management analysis](./media/migrate-best-practices-costs/analysis.png)
     *Azure Cost Management analysis*
@@ -248,7 +248,7 @@ In Azure you pay for what you use, when resources are consumed, and you don't pa
 **Learn more:**
 - Get an overview of [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) and [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview).
 - [Get](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations) Advisor cost recommendations.
-- [Learn how to [optimize costs from recommendations](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json), and [prevent unexpected charges](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
+- [Learn how to [optimize costs from recommendations](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json), and [prevent unexpected charges](https://docs.microsoft.com/azure/billing/billing-getting-started).
 - [Learn about](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit/) the Azure Resource Optimization (ARO) Toolkit
 
 ## Best practice: Implement resource group budgets

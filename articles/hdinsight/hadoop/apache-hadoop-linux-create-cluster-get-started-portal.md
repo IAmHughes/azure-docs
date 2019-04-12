@@ -60,7 +60,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
     |Property  |Description  |
     |---------|---------|
     |**Cluster type**     | Select **Hadoop** |
-    |**Operating system**     |  Select your Azure subscription. |
+    |**Operating system**     | Select **Linux** |
     |**Version**     | Select **Hadoop 2.7.3 (HDI 3.6)**|
 
     Click **Select** and then click **Next**.
@@ -89,7 +89,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
 
 4. Once the cluster is created, you see the cluster overview page in the Azure portal.
    
-    ![HDInsight Linux get started cluster settings](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "HDInsight cluster properties")    
+    ![HDInsight Linux get started cluster settings](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-cluster-settings.png "HDInsight cluster properties")    
     
     Each cluster has an [Azure Storage account](../hdinsight-hadoop-use-blob-storage.md) or an [Azure Data Lake account](../hdinsight-hadoop-use-data-lake-store.md) dependency. It is referred as the default storage account. HDInsight cluster and its default storage account must be co-located in the same Azure region. Deleting clusters does not delete the storage account.
 
@@ -114,11 +114,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
    
         SHOW TABLES;
 
-    ![HDInsight Hive views](./media/apache-hadoop-linux-tutorial-get-started/hiveview-1.png "HDInsight Hive View Query Editor")
-   
-   > [!NOTE]  
-   > Semi-colon is required by Hive.       
-
+    ![HDInsight Hive views](./media/apache-hadoop-linux-tutorial-get-started/hiveview-1.png "HDInsight Hive View Query Editor")     
 
 5. Select **Execute**. A **RESULTS** tab appears beneath the **QUERY** tab and displays information about the job. 
    
@@ -138,13 +134,13 @@ After you have completed a Hive job, you can [export the results to Azure SQL da
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](../hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into issues with creating HDInsight clusters, see [access control requirements](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Clean up resources
 After you complete the tutorial, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. 
 
 > [!NOTE]  
-> If you are *immediately* proceeding to the next tutorial to learn how to run ETL operations using Hadoop on HDInsight, you may want to keep the cluster running. This is becuase in the tutorial you have to create a Hadoop cluster again. However, if you are not going through the next tutorial right away, you must delete the cluster now.
+> If you are *immediately* proceeding to the next tutorial to learn how to run ETL operations using Hadoop on HDInsight, you may want to keep the cluster running. This is because in the tutorial you have to create a Hadoop cluster again. However, if you are not going through the next tutorial right away, you must delete the cluster now.
 > 
 >  
 
@@ -162,13 +158,14 @@ After you complete the tutorial, you may want to delete the cluster. With HDInsi
 In this tutorial, you learned how to create a Linux-based HDInsight cluster using a Resource Manager template, and how to perform basic Hive queries. In the next article, you learn how to perform an extract, transform, and load (ETL) operation using Hadoop on HDInsight.
 
 > [!div class="nextstepaction"]
->[Extract, transform, and load data using Apache Hive on HDInsight ](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Extract, transform, and load data using Apache Hive on HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
 
 If you're ready to start working with your own data and need to know more about how HDInsight stores data or how to get data into HDInsight, see the following articles:
 
 * For information on how HDInsight uses Azure Storage, see [Use Azure Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 * For information on how to create an HDInsight cluster with Data Lake Storage, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * For information on how to upload data to HDInsight, see [Upload data to HDInsight](../hdinsight-upload-data.md).
+* [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 To learn more about analyzing data with HDInsight, see the following articles:
 

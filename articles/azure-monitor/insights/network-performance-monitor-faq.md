@@ -19,7 +19,7 @@ ms.author: vinynigam
 
 This article captures the frequently asked questions (FAQs) about Network Performance Monitor (NPM) in Azure
 
-[Network Performance Monitor](/azure/networking/network-monitoring-overview) is a cloud-based [hybrid network monitoring](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to [service and application endpoints](../../azure-monitor/insights/network-performance-monitor-service-endpoint.md) and [monitor the performance of Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[Network Performance Monitor](/azure/networking/network-monitoring-overview) is a cloud-based [hybrid network monitoring](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to [service and application endpoints](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) and [monitor the performance of Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 Network Performance Monitor detects network issues like traffic blackholing, routing errors, and issues that conventional network monitoring methods aren't able to detect. The solution generates alerts and notifies you when a threshold is breached for a network link. It also ensures timely detection of network performance issues and localizes the source of the problem to a particular network segment or device. 
 
@@ -66,7 +66,7 @@ The script configures only Windows Firewall locally. If you have network firewal
 You should use at least one agent for each subnet that you want to monitor.
 
 ### What is the maximum number of agents I can use or I see error ".... you have reached your Configuration limit"?
-NPM limits the number of IPs to 5000 IPs per workspace. If a node has both IPv4 and IPv6 addresses, this will count as 2 IPs for that node. Hence, this limit of 5000 IPs would decide the upper limit on the number of agents. You can delete the inactive agents from Nodes tab in NPM >> Configure. NPM also maintains history of all the IPs that were ever assigned to the VM hosting the agent and these also count as seperate IPs contributing to that upper limit of 5000 IPs. To free up IPs for your workspace, you can use the Nodes page to delete the IPs that are not in use .
+NPM limits the number of IPs to 5000 IPs per workspace. If a node has both IPv4 and IPv6 addresses, this will count as 2 IPs for that node. Hence, this limit of 5000 IPs would decide the upper limit on the number of agents. You can delete the inactive agents from Nodes tab in NPM >> Configure. NPM also maintains history of all the IPs that were ever assigned to the VM hosting the agent and these also count as separate IPs contributing to that upper limit of 5000 IPs. To free up IPs for your workspace, you can use the Nodes page to delete the IPs that are not in use .
 
 ## Monitoring
 
@@ -128,7 +128,7 @@ NPM can monitor connectivity between networks in any part of the world, from a w
 NPM can monitor connectivity to services in any part of the world, from a workspace that is hosted in one of the [supported regions](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
 ### Which regions are supported for NPM's ExpressRoute Monitor?
-NPM can monitor your ExpressRoute circuits located in any Azure region. To onboard to NPM, you will require a Log Analytics workspace that must be hosted in one of the [supported regions](/azure/expressroute/how-to-npm#regions)
+NPM can monitor your ExpressRoute circuits located in any Azure region. To onboard to NPM, you will require a Log Analytics workspace that must be hosted in one of the [supported regions](/azure/expressroute/how-to-npm)
 
 ## Troubleshoot
 

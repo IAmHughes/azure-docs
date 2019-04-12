@@ -54,8 +54,8 @@ Learn how to run Apache Pig Latin jobs by making REST requests to an Azure HDIns
 
     The parameters used in this command are as follows:
 
-    * **-u**: The user name and password used to authenticate the request
-    * **-G**: Indicates that this request is a GET request
+   * **-u**: The user name and password used to authenticate the request
+   * **-G**: Indicates that this request is a GET request
 
      The beginning of the URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is the same for all requests. The path, **/status**, indicates that the request is to return the status of WebHCat (also known as Templeton) for the server.
 
@@ -67,18 +67,18 @@ Learn how to run Apache Pig Latin jobs by making REST requests to an Azure HDIns
 
     The parameters used in this command are as follows:
 
-    * **-d**: Because `-G` is not used, the request defaults to the POST method. `-d` specifies the data values that are sent with the request.
+   * **-d**: Because `-G` is not used, the request defaults to the POST method. `-d` specifies the data values that are sent with the request.
 
-    * **user.name**: The user who is running the command
-    * **execute**: The Pig Latin statements to execute
-    * **statusdir**: The directory that the status for this job is written to
+   * **user.name**: The user who is running the command
+   * **execute**: The Pig Latin statements to execute
+   * **statusdir**: The directory that the status for this job is written to
 
-    > [!NOTE]  
-    > Notice that the spaces in Pig Latin statements are replaced by the `+` character when used with Curl.
+     > [!NOTE]  
+     > Notice that the spaces in Pig Latin statements are replaced by the `+` character when used with Curl.
 
-    This command should return a job ID that can be used to check the status of the job, for example:
+     This command should return a job ID that can be used to check the status of the job, for example:
 
-        {"id":"job_1415651640909_0026"}
+       {"id":"job_1415651640909_0026"}
 
 3. To check the status of the job, use the following command
 
@@ -97,7 +97,7 @@ Learn how to run Apache Pig Latin jobs by making REST requests to an Azure HDIns
 
 When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job. The `statusdir` parameter passed with the query contains the location of the output file; in this case, `/example/pigcurl`.
 
-HDInsight can use either Azure Storage or Azure Data Lake Storage as the default data store. There are various ways to get at the data depending on which one you use. For more information, see the storage section of the [Linux-based HDInsight information](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store) document.
+HDInsight can use either Azure Storage or Azure Data Lake Storage as the default data store. There are various ways to get at the data depending on which one you use. For more information, see the storage section of the [Linux-based HDInsight information](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-storage) document.
 
 ## <a id="summary"></a>Summary
 

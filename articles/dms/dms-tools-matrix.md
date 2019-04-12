@@ -2,15 +2,15 @@
 title: Data migration service and tools matrix - Azure | Microsoft Docs
 description: Learn about the services and tools available to migrate databases and to support various phases of the migration process.
 services: database-migration
-author: pochiraju
-ms.author: rajpo
-manager: 
-ms.reviewer: 
-ms.service: database-migration
+author: HJToland3
+ms.author: jtoland
+manager: craigg
+ms.reviewer: craigg
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 03/12/2019
 ---
 
 # Services and tools available for data migration scenarios
@@ -120,4 +120,4 @@ The following tables identify the service and tools that you can use to plan suc
 
 ## Next steps
 
-For an overview of the Azure Database Migration Service, see [What is the Azure Database Migration Service Preview](dms-overview.md).
+For an overview of the Azure Database Migration Service, see the article [What is the Azure Database Migration Service](dms-overview.md).

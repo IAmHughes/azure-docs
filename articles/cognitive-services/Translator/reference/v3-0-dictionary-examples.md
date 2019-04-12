@@ -3,11 +3,11 @@ title: Translator Text API Dictionary Examples Method
 titlesuffix: Azure Cognitive Services
 description: Use the Translator Text API Dictionary Examples method.
 services: cognitive-services
-author: Jann-Skotdal
-manager: cgronlun
+author: v-pawal
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko

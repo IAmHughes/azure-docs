@@ -33,13 +33,13 @@ Hue is a set of Web applications used to interact with an Apache Hadoop cluster.
 > [!WARNING]  
 > Components provided with the HDInsight cluster are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
 >
-> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/).
+> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Also Apache projects have project sites on [https://apache.org](https://apache.org), for example: [Hadoop](https://hadoop.apache.org/).
 >
 >
 
 ## Install Hue using Script Actions
 
-The script to install Hue on a Linux-based HDInsight cluster is available at https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. You can use this script to install Hue on clusters with either Azure Storage Blobs (WASB) or Azure Data Lake Store as default storage.
+The script to install Hue on a Linux-based HDInsight cluster is available at https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh. You can use this script to install Hue on clusters with either Azure Storage Blobs (WASB) or Azure Data Lake Storage as default storage.
 
 This section provides instructions about how to use the script when provisioning the cluster using the Azure portal.
 
@@ -91,7 +91,7 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     This is the hostname of the primary headnode where the Hue website is located.
-4. Use the browser to open the Hue portal at http://HOSTNAME:8888. Replace HOSTNAME with the name you obtained in the previous step.
+4. Use the browser to open the Hue portal at http:\//HOSTNAME:8888. Replace HOSTNAME with the name you obtained in the previous step.
 
    > [!NOTE]  
    > When you log in for the first time, you will be prompted to create an account to log in to the Hue portal. The credentials you specify here will be limited to the portal and are not related to the admin or SSH user credentials you specified while provision the cluster.
@@ -139,7 +139,6 @@ SSH Tunneling is the only way to access Hue on the cluster once it is running. T
 
 ## Next steps
 * [Install Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing using Hadoop, and it can be used with Azure HDInsight.
-* [Install Apache Solr on HDInsight clusters](hdinsight-hadoop-solr-install-linux.md). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on stored data.
 * [Install R on HDInsight clusters](hdinsight-hadoop-r-scripts-linux.md). Use cluster customization to install R on HDInsight Hadoop clusters. R is an open-source language and environment for statistical computing. It provides hundreds of built-in statistical functions and its own programming language that combines aspects of functional and object-oriented programming. It also provides extensive graphical capabilities.
 
 [powershell-install-configure]: install-configure-powershell-linux.md

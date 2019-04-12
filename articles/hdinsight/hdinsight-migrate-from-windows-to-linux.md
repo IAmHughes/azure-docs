@@ -21,6 +21,8 @@ While Windows-based HDInsight provides an easy way to use Apache Hadoop in the c
 > [!NOTE]  
 > HDInsight clusters use Ubuntu long-term support (LTS) as the operating system for the nodes in the cluster. For information on the version of Ubuntu available with HDInsight, along with other component versioning information, see [HDInsight component versions](hdinsight-component-versioning.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Migration tasks
 
 The general workflow for migration is as follows.
@@ -59,7 +61,7 @@ Use the following steps to copy data from the production cluster to the test clu
 
     ```powershell
     $clusterName="Your existing HDInsight cluster name"
-    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    $clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
     write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
     write-host "Default container: $clusterInfo.DefaultStorageContainer"
     ```
@@ -90,7 +92,7 @@ Use the following steps to copy data from the production cluster to the test clu
 
 #### Direct copy between blobs in Azure Storage
 
-Alternatively, you may want to use the `Start-AzureStorageBlobCopy` Azure PowerShell cmdlet to copy blobs between storage accounts outside of HDInsight. For more information, see the How to manage Azure Blobs section of Using Azure PowerShell with Azure Storage.
+Alternatively, you may want to use the `Start-AzStorageBlobCopy` Azure PowerShell cmdlet to copy blobs between storage accounts outside of HDInsight. For more information, see the How to manage Azure Blobs section of Using Azure PowerShell with Azure Storage.
 
 ## Client-side technologies
 
@@ -116,7 +118,7 @@ This section provides information on differences in cluster creation.
 
 ### SSH User
 
-Linux-based HDInsight clusters use the **Secure Shell (SSH)** protocol to provide remote access to the cluster nodes. Unlike Remote Desktop for Windows-based clusters, most SSH clients do not provide a graphical user experience. Instead, SSH clients provide a command line that allows you to run commands on the cluster. Some clients (such as [MobaXterm](http://mobaxterm.mobatek.net/)) provide a graphical file system browser in addition to a remote command line.
+Linux-based HDInsight clusters use the **Secure Shell (SSH)** protocol to provide remote access to the cluster nodes. Unlike Remote Desktop for Windows-based clusters, most SSH clients do not provide a graphical user experience. Instead, SSH clients provide a command line that allows you to run commands on the cluster. Some clients (such as [MobaXterm](https://mobaxterm.mobatek.net/)) provide a graphical file system browser in addition to a remote command line.
 
 During cluster creation, you must provide an SSH user and either a **password** or **public key certificate** for authentication.
 
@@ -196,7 +198,7 @@ The following chart provides guidance on migrating your Hive workloads.
 | `set hive.execution.engine=tez;` to enable Tez |Apache Tez is the default execution engine for Linux-based clusters, so the set statement is no longer needed. |
 | C# user-defined functions | For information on validating C# components with Linux-based HDInsight, see [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD files or scripts on the server invoked as part of a Hive job |use Bash scripts |
-| `hive` command from remote desktop |Use [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) or [Apache Hive from an SSH session](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` command from remote desktop |Use [Apache Hive Beeline](hadoop/apache-hadoop-use-hive-beeline.md) or [Apache Hive from an SSH session](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### Pig
 
@@ -217,7 +219,7 @@ The following chart provides guidance on migrating your Hive workloads.
 > [!IMPORTANT]  
 > If you use an external Oozie metastore, you should back up the metastore before using it with Linux-based HDInsight. Linux-based HDInsight is available with newer versions of Oozie, which may have incompatibilities with metastores created by earlier versions.
 
-Oozie workflows allow shell actions. Shell actions use the default shell for the operating system to run command-line commands. If you have Oozie workflows that rely on the Windows shell, you must rewrite the workflows to rely on the Linux shell environment (Bash). For more information on using shell actions with Oozie, see [Oozie shell action extension](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
+Oozie workflows allow shell actions. Shell actions use the default shell for the operating system to run command-line commands. If you have Oozie workflows that rely on the Windows shell, you must rewrite the workflows to rely on the Linux shell environment (Bash). For more information on using shell actions with Oozie, see [Oozie shell action extension](https://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
 
 If you have a workflow that uses a C# application, validate these applications in a Linux environment. For more information, see [Migrate .NET solutions to Linux-based HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 
@@ -233,7 +235,7 @@ If you have a workflow that uses a C# application, validate these applications i
 
 On Linux-based clusters, the znode parent for HBase is `/hbase-unsecure`. Set this value in the configuration for any Java client applications that use native HBase Java API.
 
-See [Build a Java-based Apache HBase application](hdinsight-hbase-build-java-maven.md) for an example client that sets this value.
+See [Build a Java-based Apache HBase application](hbase/apache-hbase-build-java-maven-linux.md) for an example client that sets this value.
 
 ## Spark
 

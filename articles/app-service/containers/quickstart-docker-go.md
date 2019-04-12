@@ -4,7 +4,7 @@ description: How to deploy a Docker image running a Go application to Web App fo
 keywords: azure app service, web app, go, docker, container
 services: app-service
 author: msangapu 
-manager: cfowler
+manager: jeconnoc
 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
@@ -26,15 +26,13 @@ ms.custom: seodec18
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
-
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
 ## Create a web app
 
-Create a [web app](../app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. Don't forget to replace `<app name>` with a globally unique app name.
+Create a [web app](../overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. Don't forget to replace `<app name>` with a globally unique app name.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name microsoft/azure-appservices-go-quickstart

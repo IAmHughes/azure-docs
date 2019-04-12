@@ -12,7 +12,7 @@ ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
 
@@ -97,7 +97,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
 [autoscaling]: ../app-service/web-sites-scale.md
-[staging environments]: ../app-service/web-sites-staged-publishing.md
+[staging environments]: ../app-service/deploy-staging-slots.md
 [hybrid connections]: ../biztalk-services/integration-hybrid-connection-overview.md
 [virtual networks]: ../app-service/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md

@@ -1,5 +1,5 @@
 ---
-title: Azure IoT solution accelerators FAQ | Microsoft Docs
+title: IoT solution accelerators FAQ - Azure | Microsoft Docs
 description: Frequently asked questions for IoT solution accelerators
 author: dominicbetts
 manager: timlt
@@ -49,7 +49,7 @@ See the support article [Changing Service Administrator and Co-Administrator whe
 
 Look at the following diagram for guidance:
 
-![](media/iot-accelerators-faq/flowchart.png)
+![Permissions flowchart](media/iot-accelerators-faq/flowchart.png)
 
 > [!NOTE]
 > If you continue to see the error after validating you are a global administrator of the Azure AD tenant and a co-administrator of the subscription, have your account administrator remove the user and reassign necessary permissions in this order. First, add the user as a global administrator and then add user as a co-administrator of the Azure subscription. If issues persist, contact [Help & Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -66,9 +66,9 @@ The previous version of the Remote Monitoring solution accelerator was known as 
 
 Yes, the new Remote Monitoring is available in the same geographic regions.
 
-### What's the difference between deleting a resource group in the Azure portal and clicking delete on a solution accelerator in azureiotsuite.com?
+### What's the difference between deleting a resource group in the Azure portal and clicking delete on a solution accelerator in azureiotsolutions.com?
 
-* If you delete the solution accelerator in [azureiotsuite.com](https://www.azureiotsolutions.com/), you delete all the resources that were deployed when you created the solution accelerator. If you added additional resources to the resource group, these resources are also deleted.
+* If you delete the solution accelerator in [azureiotsolutions.com](https://www.azureiotsolutions.com/), you delete all the resources that were deployed when you created the solution accelerator. If you added additional resources to the resource group, these resources are also deleted.
 * If you delete the resource group in the [Azure portal](https://portal.azure.com), you only delete the resources in that resource group. You also need to delete the Azure Active Directory application associated with the solution accelerator.
 
 ### Can I continue to leverage my existing investments in Azure IoT solution accelerators?

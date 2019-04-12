@@ -7,7 +7,7 @@ ms.author: gwallace
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 manager: carmonm
 ---
 
@@ -15,9 +15,15 @@ manager: carmonm
 
 There may be many reasons your machine isn't showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter for Azure machines from the Azure portal and Non-Azure machines in the [offline scenario](#troubleshoot-offline).
 
+The following list are the three readiness states a machine can be in:
+
+* **Ready** - The update agent is deployed and was last seen less than 1 hour ago.
+* **Disconnected** -  The update agent is deployed and was last seen over 1 hour ago.
+* **Not configured** -  The update agent isn't found or hasn't finished onboarding.
+
 ## Start the troubleshooter
 
-For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For Non-Azure machines, the link brings you to this article. See the [offline instructions](#offline) to troubleshoot a Non-Azure machine.
+For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For Non-Azure machines, the link brings you to this article. See the offline instructions to troubleshoot a Non-Azure machine.
 
 ![vm list page](../media/update-agent-issues-linux/vm-list.png)
 
@@ -28,7 +34,7 @@ On the **Troubleshoot Update Agent** page, click **Run Checks**, to start the tr
 
 ![Troubleshoot page](../media/update-agent-issues-linux/troubleshoot-page.png)
 
-When complete, the results are returned in the window. The [check sections](#pre-requisistes-checks) provide information on what each check is looking for.
+When complete, the results are returned in the window. The check sections provide information on what each check is looking for.
 
 ![Update agent checks page](../media/update-agent-issues-linux/update-agent-checks.png)
 
@@ -40,7 +46,7 @@ The OS check, verifies if the Hybrid Runbook Worker is running one of the follow
 
 |Operating system  |Notes  |
 |---------|---------|
-|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires 'yum' to return security data which CentOS does not have out of the box.         |
+|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires 'yum' to return security data which CentOS doesn't have out of the box.         |
 |Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
 |Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
@@ -166,3 +172,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 ## Next steps
 
 To troubleshoot additional issues with your Hybrid Runbook Workers, see [Troubleshoot - Hybrid Runbook Workers](hybrid-runbook-worker.md)
+

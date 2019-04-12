@@ -11,9 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 11/15/2018
+ms.date: 03/29/2019
 ms.author: jeffgilb
-ms.reviewer: quying
+ms.reviewer: jiahan
+ms.lastreviewed: 03/18/2019
 ---
 
 # Deploy the MySQL resource provider on Azure Stack
@@ -40,6 +41,7 @@ There are several prerequisites that need to be in place before you can deploy t
 
   |Minimum Azure Stack version|MySQL RP version|
   |-----|-----|
+  |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
   |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
   |Version 1804 (1.0.180513.1)|[MySQL RP version 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
   |     |     |
@@ -59,7 +61,10 @@ _For integrated systems installations only_. You must provide the SQL PaaS PKI c
 
 ## Deploy the resource provider
 
-After you've got all the prerequisites installed, run the **DeployMySqlProvider.ps1** script to deploy the MYSQL resource provider. The DeployMySqlProvider.ps1 script is extracted as part of the MySQL resource provider binary that you downloaded for your version of Azure Stack.
+After you've installed all the prerequisites, you can run the **DeployMySqlProvider.ps1** script to deploy the MySQL resource provider. The DeployMySqlProvider.ps1 script is extracted as part of the MySQL resource provider installation files that you downloaded for your version of Azure Stack.
+
+ > [!IMPORTANT]
+ > Before deploying the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
 
 To deploy the MySQL resource provider, open a new elevated PowerShell window (not PowerShell ISE) and change to the directory where you extracted the MySQL resource provider binary files. We recommend using a new PowerShell window to avoid potential problems caused by PowerShell modules that are already loaded.
 
@@ -85,14 +90,14 @@ You can specify these parameters from the command line. If you don't, or if any 
 | **AzCredential** | The credentials for the Azure Stack service admin account. Use the same credentials that you used for deploying Azure Stack. | _Required_ |
 | **VMLocalCredential** | The credentials for the local administrator account of the MySQL resource provider VM. | _Required_ |
 | **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _Required_ |
-| **AzureEnvironment** | The Azure environment of the service admin account which you used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure AD, **AzureChinaCloud**. | AzureCloud |
-| **DependencyFilesLocalPath** | For integrated systems only, your certificate .pfx file must be placed in this directory. For disconnected enviroments, download [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) to this directory. You can optionally copy one Windows Update MSU package here. | _Optional_ (_mandatory_ for integrated systems or disconnected environments) |
+| **AzureEnvironment** | The Azure environment of the service admin account used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure AD, **AzureChinaCloud**. | AzureCloud |
+| **DependencyFilesLocalPath** | For integrated systems only, your certificate .pfx file must be placed in this directory. For disconnected environments, download [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) to this directory. You can optionally copy one Windows Update MSU package here. | _Optional_ (_mandatory_ for integrated systems or disconnected environments) |
 | **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _Required_ |
 | **MaxRetryCount** | The number of times you want to retry each operation if there is a failure.| 2 |
 | **RetryDuration** | The timeout interval between retries, in seconds. | 120 |
 | **Uninstall** | Removes the resource provider and all associated resources (see the following notes). | No |
 | **DebugMode** | Prevents automatic cleanup on failure. | No |
-| **AcceptLicense** | Skips the prompt to accept the GPL license.  <http://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
+| **AcceptLicense** | Skips the prompt to accept the GPL license.  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## Deploy the MySQL resource provider using a custom script
 
@@ -100,9 +105,10 @@ To eliminate any manual configuration when deploying the resource provider, you 
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
+# Note that this might not be the most currently available version of Azure Stack PowerShell
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.5.0
+Install-Module -Name AzureStack -RequiredVersion 1.6.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  
@@ -128,6 +134,10 @@ $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysq
 # And the cloudadmin credential required for privileged endpoint access.
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# Clear the existing login information from the Azure PowerShell context.
+Clear-AzureRMContext -Scope CurrentUser -Force
+Clear-AzureRMContext -Scope Process -Force
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force

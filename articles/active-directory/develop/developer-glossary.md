@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory developer glossary
@@ -199,7 +200,7 @@ Azure AD tenants are created/associated with Azure and Office 365 subscriptions 
 
 ## token endpoint
 
-One of the endpoints implemented by the [authorization server](#authorization-server) to support OAuth2 [authorization grants](#authorization-grant). Depending on the grant, it can be used to acquire an [access token](#access-token) (and related "refresh" token) to a [client](#client-application), or [ID token](#ID-token) when used with the [OpenID Connect][OpenIDConnect] protocol.
+One of the endpoints implemented by the [authorization server](#authorization-server) to support OAuth2 [authorization grants](#authorization-grant). Depending on the grant, it can be used to acquire an [access token](#access-token) (and related "refresh" token) to a [client](#client-application), or [ID token](#id-token) when used with the [OpenID Connect][OpenIDConnect] protocol.
 
 ## User-agent-based client
 
